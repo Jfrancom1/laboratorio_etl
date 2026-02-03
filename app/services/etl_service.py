@@ -107,3 +107,22 @@ def transform_load_service():
         "tabla_destino": "personajes_master",
         "status": 200
     }
+
+##Se crea la funcion reset_system_service ##
+def reset_system_service():
+    db = SessionLocal()
+    try:
+        db.execute(text("DELETE FROM personajes_master"))
+        db.commit()
+        return {
+            "status": "success",
+            "message": "Sistema reiniciado correctamente"
+        }
+    except Exception as e:
+        db.rollback()
+        return {
+            "status": "error",
+            "message": str(e)
+        }
+    finally:
+        db.close()
