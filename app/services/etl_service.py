@@ -38,3 +38,19 @@ def extract_characters_service(cantidad: int):
         "fuente": "Rick & Morty API",
         "status": 201
     }
+
+### Se crea la funcion transform_load_service ###
+def transform_load_service():
+    # 1. Se extraen los datos desde MongoDB
+    documents = list(mongo_collection.find({}, {"_id": 0}))
+
+    if not documents:
+        return {
+            "mensaje": "No hay datos para procesar",
+            "registros_procesados": 0,
+            "tabla_destino": "personajes_master",
+            "status": 200
+        }
+
+    # 2. Se transforman con Pandas
+    df = pd.json_normalize(documents)
