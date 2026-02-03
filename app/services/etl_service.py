@@ -112,22 +112,27 @@ def transform_load_service():
 
 ##Se crea la funcion reset_system_service ##
 def reset_system_service():
+    # MongoDB
+    mongo_result = mongo_collection.delete_many({})
+    mongo_deleted = mongo_result.deleted_count
+
+    # MySQL
     db = SessionLocal()
     try:
-        db.execute(text("DELETE FROM personajes_master"))
+        result = db.execute(text("DELETE FROM personajes_master"))
+        mysql_deleted = result.rowcount
         db.commit()
-        return {
-            "status": "success",
-            "message": "Sistema reiniciado correctamente"
-        }
     except Exception as e:
         db.rollback()
-        return {
-            "status": "error",
-            "message": str(e)
-        }
+        raise e
     finally:
         db.close()
 
+    return {
+        "mensaje": "Sistema reseteado correctamente",
+        "mongo_docs_eliminados": mongo_deleted,
+        "mysql_rows_eliminadas": mysql_deleted,
+        "status": 200
+    }
 
  
