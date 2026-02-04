@@ -3,48 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Laboratorio ETL - Rick & Morty</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      margin: 40px;
-      background-color: #fafafa;
-      color: #222;
-    }
-    h1, h2, h3 {
-      color: #2c3e50;
-    }
-    code, pre {
-      background-color: #f4f4f4;
-      padding: 8px;
-      border-radius: 5px;
-      display: block;
-      overflow-x: auto;
-    }
-    ul {
-      margin-left: 20px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 15px 0;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #eaeaea;
-    }
-    .box {
-      background: #ffffff;
-      border: 1px solid #ddd;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-  </style>
 </head>
 <body>
 
